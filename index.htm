@@ -72,16 +72,16 @@
                 <span class="text-lg font-bold text-white tracking-widest">任务引擎</span>
             </div>
             <div class="px-4 py-6 space-y-2">
-                <button onclick="switchView('engine')" class="nav-btn active w-full flex items-center gap-3 px-4 py-3 rounded-xl bg-slate-800 text-white font-medium transition-all" data-target="engine">
+                <button onclick="window.switchView('engine')" class="nav-btn active w-full flex items-center gap-3 px-4 py-3 rounded-xl bg-slate-800 text-white font-medium transition-all" data-target="engine">
                     <i class="ph ph-cpu text-xl"></i> 任务引擎
                 </button>
-                <button onclick="switchView('history')" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800/50 hover:text-white font-medium transition-all" data-target="history">
+                <button onclick="window.switchView('history')" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800/50 hover:text-white font-medium transition-all" data-target="history">
                     <i class="ph ph-calendar-blank text-xl"></i> 忆往昔
                 </button>
-                <button onclick="switchView('capability')" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800/50 hover:text-white font-medium transition-all" data-target="capability">
+                <button onclick="window.switchView('capability')" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800/50 hover:text-white font-medium transition-all" data-target="capability">
                     <i class="ph ph-lightning text-xl text-amber-400"></i> 能力分析
                 </button>
-                <button onclick="switchView('summary')" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800/50 hover:text-white font-medium transition-all" data-target="summary">
+                <button onclick="window.switchView('summary')" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800/50 hover:text-white font-medium transition-all" data-target="summary">
                     <i class="ph ph-file-text text-xl"></i> 月度总结
                 </button>
             </div>
@@ -90,23 +90,23 @@
             <div class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center text-white"><i class="ph ph-user"></i></div>
             <div class="text-xs">
                 <div class="font-bold text-white">高级执行官</div>
-                <div class="text-slate-500">C-Level</div>
+                <div class="text-slate-500" id="cloud-status">☁️ 连接云端大脑中...</div>
             </div>
         </div>
     </nav>
 
     <!-- 移动端底部导航 -->
     <nav class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 flex justify-around items-center py-2 px-4 z-40 pb-safe shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
-        <button onclick="switchView('engine')" class="mobile-nav-btn flex flex-col items-center gap-1 text-accent" data-target="engine">
+        <button onclick="window.switchView('engine')" class="mobile-nav-btn flex flex-col items-center gap-1 text-accent" data-target="engine">
             <i class="ph ph-cpu text-2xl"></i><span class="text-[10px] font-bold">引擎</span>
         </button>
-        <button onclick="switchView('history')" class="mobile-nav-btn flex flex-col items-center gap-1 text-slate-400" data-target="history">
+        <button onclick="window.switchView('history')" class="mobile-nav-btn flex flex-col items-center gap-1 text-slate-400" data-target="history">
             <i class="ph ph-calendar-blank text-2xl"></i><span class="text-[10px] font-bold">回顾</span>
         </button>
-        <button onclick="switchView('capability')" class="mobile-nav-btn flex flex-col items-center gap-1 text-slate-400" data-target="capability">
+        <button onclick="window.switchView('capability')" class="mobile-nav-btn flex flex-col items-center gap-1 text-slate-400" data-target="capability">
             <i class="ph ph-lightning text-2xl"></i><span class="text-[10px] font-bold">分析</span>
         </button>
-        <button onclick="switchView('summary')" class="mobile-nav-btn flex flex-col items-center gap-1 text-slate-400" data-target="summary">
+        <button onclick="window.switchView('summary')" class="mobile-nav-btn flex flex-col items-center gap-1 text-slate-400" data-target="summary">
             <i class="ph ph-file-text text-2xl"></i><span class="text-[10px] font-bold">总结</span>
         </button>
     </nav>
@@ -121,7 +121,7 @@
                     <p id="current-date" class="hidden md:block text-xs text-slate-500"></p>
                 </div>
             </div>
-            <button onclick="checkEveningReflection(true)" class="p-2 md:px-4 md:py-2 bg-indigo-50 text-indigo-600 rounded-lg text-sm font-bold border border-indigo-100 flex items-center">
+            <button onclick="window.checkEveningReflection(true)" class="p-2 md:px-4 md:py-2 bg-indigo-50 text-indigo-600 rounded-lg text-sm font-bold border border-indigo-100 flex items-center">
                 <i class="ph-fill ph-moon-stars md:mr-1"></i><span class="hidden md:inline">晚间复盘</span>
             </button>
         </header>
@@ -146,7 +146,7 @@
 
                 <!-- 任务录入区 -->
                 <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-                    <button onclick="toggleQuickAdd()" class="w-full px-5 py-4 flex items-center justify-between hover:bg-slate-50 transition-colors">
+                    <button onclick="window.toggleQuickAdd()" class="w-full px-5 py-4 flex items-center justify-between hover:bg-slate-50 transition-colors">
                         <div class="flex items-center gap-2">
                             <i class="ph ph-plus-circle text-accent text-xl"></i>
                             <span class="font-bold text-slate-700 text-sm">新任务规划</span>
@@ -178,21 +178,21 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div class="space-y-2">
                                 <div class="flex justify-between items-center"><label class="text-[10px] font-bold text-slate-400">重要程度</label><span id="val-importance" class="text-xs font-black text-accent">5</span></div>
-                                <input type="range" id="qa-importance" min="1" max="10" value="5" oninput="updateSliderVal('importance')">
+                                <input type="range" id="qa-importance" min="1" max="10" value="5" oninput="window.updateSliderVal('importance')">
                             </div>
                             <div class="space-y-2">
                                 <div class="flex justify-between items-center"><label class="text-[10px] font-bold text-slate-400">紧急程度</label><span id="val-urgency" class="text-xs font-black text-rose-500">5</span></div>
-                                <input type="range" id="qa-urgency" min="1" max="10" value="5" oninput="updateSliderVal('urgency')">
+                                <input type="range" id="qa-urgency" min="1" max="10" value="5" oninput="window.updateSliderVal('urgency')">
                             </div>
                         </div>
-                        <button onclick="submitQuickTask()" class="w-full py-3 bg-brand text-white rounded-xl font-bold text-sm shadow-lg active:scale-95 transition-all">确认并排入沙盘</button>
+                        <button onclick="window.submitQuickTask()" class="w-full py-3 bg-brand text-white rounded-xl font-bold text-sm shadow-lg active:scale-95 transition-all">确认并排入沙盘</button>
                     </div>
                 </div>
 
                 <!-- 任务列表头部与一键清空按钮 -->
                 <div class="flex justify-between items-center px-2 pt-2">
                     <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">今日任务列表</span>
-                    <button onclick="clearAllTasks()" class="text-xs font-bold text-rose-500 hover:text-rose-700 flex items-center gap-1 transition-colors"><i class="ph ph-trash"></i> 一键清空</button>
+                    <button onclick="window.clearAllTasks()" class="text-xs font-bold text-rose-500 hover:text-rose-700 flex items-center gap-1 transition-colors"><i class="ph ph-trash"></i> 一键清空</button>
                 </div>
 
                 <!-- 任务列表容器 -->
@@ -202,8 +202,8 @@
             <!-- 视图 2: 忆往昔 -->
             <section id="view-history" class="view-section space-y-4">
                 <div class="bg-white p-3 rounded-2xl border border-slate-200 shadow-sm flex flex-col gap-3">
-                    <input type="date" id="history-date-picker" class="w-full bg-slate-50 border-none rounded-xl py-2 px-4 text-brand font-bold" onchange="loadHistoryTasks()">
-                    <input type="text" id="history-search" placeholder="检索历史战役..." class="w-full bg-slate-50 border-none rounded-xl py-2 px-4 text-sm" oninput="loadHistoryTasks()">
+                    <input type="date" id="history-date-picker" class="w-full bg-slate-50 border-none rounded-xl py-2 px-4 text-brand font-bold" onchange="window.loadHistoryTasks()">
+                    <input type="text" id="history-search" placeholder="检索历史战役..." class="w-full bg-slate-50 border-none rounded-xl py-2 px-4 text-sm" oninput="window.loadHistoryTasks()">
                 </div>
                 <div class="space-y-3" id="history-list-container"></div>
             </section>
@@ -213,11 +213,11 @@
                 <div class="bg-white p-6 md:p-10 rounded-3xl shadow-sm border border-slate-200">
                     <div class="flex justify-between items-center mb-6">
                         <h2 class="text-xl font-bold">AI 能力深度评估</h2>
-                        <button onclick="generateCapabilityReport()" class="w-10 h-10 bg-brand text-white rounded-full flex items-center justify-center transition-transform hover:rotate-180"><i class="ph ph-arrows-clockwise"></i></button>
+                        <button onclick="window.generateCapabilityReport()" class="w-10 h-10 bg-brand text-white rounded-full flex items-center justify-center transition-transform hover:rotate-180"><i class="ph ph-arrows-clockwise"></i></button>
                     </div>
-                    <div id="capability-loading" class="hidden py-10 text-center text-slate-400"><div class="dot-pulse mx-auto mb-4"></div>分析中...</div>
+                    <div id="capability-loading" class="hidden py-10 text-center text-slate-400"><div class="dot-pulse mx-auto mb-4"></div>基于云端全量数据深度分析中...</div>
                     <div id="capability-content" class="prose max-w-none">
-                        <div class="text-center py-10 text-slate-400">点击右上角刷新生成报告</div>
+                        <div class="text-center py-10 text-slate-400">点击右上角生成您的能力图谱</div>
                     </div>
                 </div>
             </section>
@@ -227,13 +227,13 @@
                 <div class="bg-white p-6 md:p-10 rounded-3xl shadow-sm border border-slate-200">
                     <div class="flex flex-col md:flex-row justify-between md:items-center gap-4 border-b pb-6 mb-6">
                         <h1 class="text-xl font-bold uppercase tracking-widest">月度战略工作总结</h1>
-                        <button onclick="generateMonthlySummary()" class="bg-brand text-white px-6 py-2.5 rounded-xl font-bold text-sm shadow-lg">生成正式汇报</button>
+                        <button onclick="window.generateMonthlySummary()" class="bg-brand text-white px-6 py-2.5 rounded-xl font-bold text-sm shadow-lg">整合当月云端数据生成汇报</button>
                     </div>
                     <div id="summary-content" class="prose max-w-none">
-                        <div class="text-center py-10 text-slate-400">点击上方按钮生成月度总结</div>
+                        <div class="text-center py-10 text-slate-400">点击上方按钮，基于本月数据重构公文</div>
                     </div>
                     <div id="export-container" class="hidden mt-8">
-                        <button onclick="exportToWord()" class="w-full py-4 bg-emerald-600 text-white font-bold rounded-2xl flex items-center justify-center gap-2">导出 Word (.doc)</button>
+                        <button onclick="window.exportToWord()" class="w-full py-4 bg-emerald-600 text-white font-bold rounded-2xl flex items-center justify-center gap-2">导出党政风公文 Word (.doc)</button>
                     </div>
                 </div>
             </section>
@@ -259,7 +259,7 @@
                 </div>
                 <div class="space-y-1">
                     <label class="text-[9px] font-bold text-slate-400 uppercase">完成状态评估 (可手动选择)</label>
-                    <select id="settle-status" onchange="toggleDelayField()" class="w-full px-4 py-3 rounded-xl border border-slate-200 font-bold text-brand focus:ring-2 focus:ring-accent outline-none">
+                    <select id="settle-status" onchange="window.toggleDelayField()" class="w-full px-4 py-3 rounded-xl border border-slate-200 font-bold text-brand focus:ring-2 focus:ring-accent outline-none">
                         <option value="on-time">✅ 按时完成 (符合预期)</option>
                         <option value="early">🚀 提前完成 (效率优化)</option>
                         <option value="overdue">⚠️ 逾期未完成 (遭遇阻碍)</option>
@@ -267,8 +267,8 @@
                 </div>
                 <textarea id="settle-delay-reason" placeholder="如逾期，请简述阻碍..." class="hidden w-full px-4 py-3 rounded-xl border border-rose-100 bg-rose-50 text-sm focus:ring-2 focus:ring-rose-500 outline-none"></textarea>
                 <div class="flex gap-2">
-                    <button onclick="closeSettlementModal()" class="flex-1 py-3 bg-slate-100 text-slate-600 rounded-xl font-bold">撤回</button>
-                    <button onclick="submitSettlement()" class="flex-1 py-3 bg-brand text-white rounded-xl font-bold">确认归档</button>
+                    <button onclick="window.closeSettlementModal()" class="flex-1 py-3 bg-slate-100 text-slate-600 rounded-xl font-bold">撤回</button>
+                    <button onclick="window.submitSettlement()" class="flex-1 py-3 bg-brand text-white rounded-xl font-bold">确认归档</button>
                 </div>
             </div>
         </div>
@@ -299,8 +299,8 @@
                     <textarea id="edit-desc" placeholder="具体执行描述..." rows="3" class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 text-sm focus:ring-2 focus:ring-accent outline-none"></textarea>
                 </div>
                 <div class="flex gap-2 pt-2">
-                    <button onclick="closeEditModal()" class="flex-1 py-3 bg-slate-100 text-slate-600 rounded-xl font-bold">取消</button>
-                    <button onclick="submitEdit()" class="flex-1 py-3 bg-brand text-white rounded-xl font-bold">保存修改</button>
+                    <button onclick="window.closeEditModal()" class="flex-1 py-3 bg-slate-100 text-slate-600 rounded-xl font-bold">取消</button>
+                    <button onclick="window.submitEdit()" class="flex-1 py-3 bg-brand text-white rounded-xl font-bold">保存修改</button>
                 </div>
             </div>
         </div>
@@ -314,13 +314,13 @@
                 <p id="reflection-task-name" class="text-indigo-900 font-bold bg-indigo-50 p-4 rounded-xl text-sm"></p>
                 <input type="hidden" id="reflection-task-id">
                 <textarea id="reflection-input" rows="3" placeholder="说说提前完成的原因..." class="w-full px-4 py-3 rounded-xl border-none bg-slate-50 text-sm focus:ring-2 focus:ring-indigo-500 outline-none"></textarea>
-                <button onclick="submitReflection()" class="w-full py-4 bg-indigo-600 text-white rounded-xl font-bold shadow-lg">提交洞察</button>
-                <button onclick="closeReflectionModal()" class="w-full py-2 text-slate-400 text-xs">稍后复盘</button>
+                <button onclick="window.submitReflection()" class="w-full py-4 bg-indigo-600 text-white rounded-xl font-bold shadow-lg">提交洞察</button>
+                <button onclick="window.closeReflectionModal()" class="w-full py-2 text-slate-400 text-xs">稍后复盘</button>
             </div>
         </div>
     </div>
 
-    <!-- 新增：删除/清空 确认弹窗 -->
+    <!-- 确认删除弹窗 -->
     <div id="delete-confirm-modal" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl shadow-2xl w-full max-w-sm p-6 transform scale-95 transition-all" id="delete-confirm-card">
             <div class="flex items-center gap-3 mb-4 text-rose-600">
@@ -329,8 +329,8 @@
             </div>
             <p class="text-sm text-slate-600 mb-6 font-medium" id="delete-confirm-msg">是否删除此任务？</p>
             <div class="flex gap-2">
-                <button onclick="closeDeleteConfirm()" class="flex-1 py-3 bg-slate-100 text-slate-600 rounded-xl font-bold transition-colors hover:bg-slate-200">取消</button>
-                <button onclick="executeDelete()" class="flex-1 py-3 bg-rose-600 text-white rounded-xl font-bold transition-colors hover:bg-rose-700 shadow-lg shadow-rose-500/30">确认</button>
+                <button onclick="window.closeDeleteConfirm()" class="flex-1 py-3 bg-slate-100 text-slate-600 rounded-xl font-bold transition-colors hover:bg-slate-200">取消</button>
+                <button onclick="window.executeDelete()" class="flex-1 py-3 bg-rose-600 text-white rounded-xl font-bold transition-colors hover:bg-rose-700 shadow-lg shadow-rose-500/30">确认</button>
             </div>
         </div>
     </div>
@@ -342,44 +342,47 @@
     </div>
 
     <!-- AI 浮窗 -->
-    <button id="ai-fab" onclick="toggleAiPanel()" class="fixed bottom-20 md:bottom-10 right-6 w-14 h-14 bg-brand text-white rounded-full flex items-center justify-center shadow-2xl z-40 transition-all active:scale-90">
+    <button id="ai-fab" onclick="window.toggleAiPanel()" class="fixed bottom-20 md:bottom-10 right-6 w-14 h-14 bg-brand text-white rounded-full flex items-center justify-center shadow-2xl z-40 transition-all active:scale-90">
         <i class="ph ph-pencil-simple text-2xl"></i>
     </button>
 
     <aside id="ai-panel" class="fixed inset-x-0 bottom-0 md:inset-auto md:bottom-32 md:right-10 md:w-[420px] md:h-[650px] h-[85vh] bg-white border border-slate-200 md:rounded-3xl rounded-t-3xl shadow-2xl z-50 flex flex-col ai-panel-hidden transition-all duration-300">
         <div class="p-4 border-b flex justify-between items-center bg-slate-50 md:rounded-t-3xl rounded-t-3xl">
             <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div><h3 class="font-bold">AI 战略助理</h3></div>
-            <button onclick="toggleAiPanel()" class="p-2"><i class="ph ph-caret-down text-lg"></i></button>
+            <button onclick="window.toggleAiPanel()" class="p-2"><i class="ph ph-caret-down text-lg"></i></button>
         </div>
         <div class="flex-1 overflow-y-auto p-4 space-y-4 no-scrollbar" id="chat-history">
             <div class="bg-slate-100 p-3 rounded-2xl rounded-tl-none text-sm text-slate-700 max-w-[85%] leading-relaxed">
-                您好，我是您的战略助理。今天有什么想法？请先随意告诉我您大概要做什么。
+                您好，我是您的战略助理。今天有什么想法？请先随意告诉我您大概要做什么。我将根据上下文推演并规划您的任务。
             </div>
         </div>
         <div class="p-4 border-t pb-10 md:pb-4">
             <div class="relative">
-                <input type="text" id="ai-input" placeholder="输入您的想法..." onkeypress="handleChatEnter(event)" class="w-full bg-slate-50 border-none rounded-xl py-3 pl-4 pr-12 text-sm focus:ring-2 focus:ring-accent outline-none">
-                <button onclick="sendChatMessage()" class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-brand text-white rounded-lg flex items-center justify-center hover:bg-black transition-all shadow-sm"><i class="ph ph-paper-plane-tilt"></i></button>
+                <input type="text" id="ai-input" placeholder="输入您的想法..." onkeypress="window.handleChatEnter(event)" class="w-full bg-slate-50 border-none rounded-xl py-3 pl-4 pr-12 text-sm focus:ring-2 focus:ring-accent outline-none">
+                <button onclick="window.sendChatMessage()" class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-brand text-white rounded-lg flex items-center justify-center hover:bg-black transition-all shadow-sm"><i class="ph ph-paper-plane-tilt"></i></button>
             </div>
         </div>
     </aside>
 
-    <script>
+    <!-- 采用 ES Module 以接入 Firebase 云端存储 -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInWithCustomToken, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, doc, setDoc, deleteDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
         /**
          * =====================================================================
          * 🔑 [API KEY 配置区] 
          * =====================================================================
          */
-        const DEEPSEEK_API_KEY = 'sk-3fd85f8bd849443983a3ba55f519b710'; 
+        const DEEPSEEK_API_KEY = ''; 
 
-        // 状态变量
-        let taskListState = [
-            { id: 't0', date: '2026-03-05', name: '战略研讨会', description: '重点对标Q1指标，提炼3个增长策略。', startTime: '10:00', endTime: '11:00', duration: 60, tags: ['非常重要任务'], importance: 10, urgency: 8, status: 'pending' }
-        ];
+        // 全局状态变量
+        let taskListState = [];
         let chatContext = [];
-        let conversationStage = 1; // 1:整理规划, 2:追问描述, 3:补充确认, 4:生成完成
         let taskInsights = [];
-        
+        let conversationStage = 1; 
+
         const TASK_LEVELS = {
             '非常重要任务': { short: '极要', color: 'v_critical', bg: 'bg-v_critical/10', text: 'text-v_critical' },
             '上级要求': { short: '指令', color: 'v_directive', bg: 'bg-v_directive/10', text: 'text-v_directive' },
@@ -388,14 +391,113 @@
             '临时任务': { short: '临时', color: 'v_adhoc', bg: 'bg-v_adhoc/10', text: 'text-v_adhoc' }
         };
 
-        function init() {
+        // ---------------------------------------------------------------------
+        // 云端 Firebase 初始化
+        // ---------------------------------------------------------------------
+        const firebaseConfigStr = typeof __firebase_config !== 'undefined' ? __firebase_config : '{}';
+        let firebaseConfig = {};
+        try { firebaseConfig = JSON.parse(firebaseConfigStr); } catch(e) {}
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'task-engine-v2';
+
+        let app, auth, db, currentUser;
+        let isInitialLoad = true;
+
+        if (Object.keys(firebaseConfig).length > 0) {
+            app = initializeApp(firebaseConfig);
+            auth = getAuth(app);
+            db = getFirestore(app);
+
+            const initAuth = async () => {
+                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                    await signInWithCustomToken(auth, __initial_auth_token);
+                } else {
+                    await signInAnonymously(auth);
+                }
+            };
+            
+            onAuthStateChanged(auth, (user) => {
+                currentUser = user;
+                if (user) {
+                    document.getElementById('cloud-status').innerHTML = '<span class="text-emerald-500 font-bold">☁️ 云端数据库已连接</span>';
+                    setupRealtimeListeners(user.uid);
+                }
+            });
+
+            initAuth().catch(console.error);
+        } else {
+            // 本地无云端环境后备逻辑
+            document.getElementById('cloud-status').innerHTML = '<span class="text-amber-500">运行于本地演示环境</span>';
+            taskListState = [{ id: 't0', date: new Date().toISOString().split('T')[0], name: '战略研讨会 (演示)', description: '体验本地存储模式。', startTime: '10:00', endTime: '11:00', duration: 60, tags: ['非常重要任务'], importance: 10, urgency: 8, status: 'pending' }];
+            initUI();
+        }
+
+        function setupRealtimeListeners(userId) {
+            // 实时监听任务集合
+            const tasksRef = collection(db, 'artifacts', appId, 'users', userId, 'tasks');
+            onSnapshot(tasksRef, (snapshot) => {
+                taskListState = snapshot.docs.map(doc => doc.data());
+                if (isInitialLoad) {
+                    initUI();
+                    isInitialLoad = false;
+                } else {
+                    renderTasks();
+                    if(document.getElementById('view-history').classList.contains('active')) window.loadHistoryTasks();
+                }
+            }, (error) => console.error(error));
+
+            // 实时监听对话上下文
+            const chatsRef = collection(db, 'artifacts', appId, 'users', userId, 'chats');
+            onSnapshot(chatsRef, (snapshot) => {
+                const chats = snapshot.docs.map(doc => doc.data()).sort((a,b) => a.timestamp - b.timestamp);
+                chatContext = chats.map(c => ({role: c.role, content: c.content}));
+            });
+
+            // 实时监听洞察
+            const insightsRef = collection(db, 'artifacts', appId, 'users', userId, 'insights');
+            onSnapshot(insightsRef, (snapshot) => {
+                taskInsights = snapshot.docs.map(doc => doc.data());
+            });
+        }
+
+        // 云端写入抽象层
+        async function saveTaskToCloud(task) {
+            if (currentUser) {
+                await setDoc(doc(db, 'artifacts', appId, 'users', currentUser.uid, 'tasks', task.id), task);
+            } else {
+                const idx = taskListState.findIndex(t => t.id === task.id);
+                if(idx >= 0) taskListState[idx] = task; else taskListState.push(task);
+                renderTasks();
+            }
+        }
+
+        async function deleteTaskFromCloud(taskId) {
+            if (currentUser) {
+                await deleteDoc(doc(db, 'artifacts', appId, 'users', currentUser.uid, 'tasks', taskId));
+            } else {
+                taskListState = taskListState.filter(t => t.id !== taskId);
+                renderTasks();
+            }
+        }
+
+        async function saveChatToCloud(role, content) {
+            if (currentUser) {
+                const id = 'msg_' + Date.now() + Math.random().toString(36).substr(2, 5);
+                await setDoc(doc(db, 'artifacts', appId, 'users', currentUser.uid, 'chats', id), { role, content, timestamp: Date.now() });
+            } else {
+                chatContext.push({ role, content });
+            }
+        }
+
+        // ---------------------------------------------------------------------
+        // UI 与业务逻辑绑定
+        // ---------------------------------------------------------------------
+        function initUI() {
             const today = new Date();
             document.getElementById('current-date').innerText = today.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' });
             renderTasks();
             document.getElementById('history-date-picker').value = today.toISOString().split('T')[0];
             showToast("战略引擎就绪", "ph-check-circle");
         }
-        window.onload = init;
 
         function showToast(msg, icon = "ph-info") {
             const t = document.getElementById('toast');
@@ -405,12 +507,12 @@
             setTimeout(() => t.classList.remove('show'), 3000);
         }
 
-        function switchView(targetId) {
+        window.switchView = function(targetId) {
             document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.toggle('bg-slate-800', btn.dataset.target === targetId));
             document.querySelectorAll('.mobile-nav-btn').forEach(btn => btn.classList.toggle('text-accent', btn.dataset.target === targetId));
             document.querySelectorAll('.view-section').forEach(view => view.classList.toggle('active', view.id === `view-${targetId}`));
-            if(targetId === 'history') loadHistoryTasks();
-            const titles = { 'engine': '任务引擎', 'history': '忆往昔回顾', 'capability': '能力分析', 'summary': '月度汇报' };
+            if(targetId === 'history') window.loadHistoryTasks();
+            const titles = { 'engine': '任务引擎', 'history': '忆往昔云端溯源', 'capability': '能力深度分析', 'summary': '公文级月度汇报' };
             if(document.getElementById('page-title')) document.getElementById('page-title').innerText = titles[targetId];
         }
 
@@ -435,10 +537,10 @@
                             <span class="text-xs text-slate-400 font-medium tracking-tight"><i class="ph ph-timer"></i> ${task.startTime} - ${task.endTime}</span>
                         </div>
                         <div class="flex items-center gap-1.5">
-                            ${!isCompleted ? `<button onclick="openEditModal('${task.id}')" class="w-8 h-8 bg-slate-50 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 hover:text-brand transition-colors"><i class="ph ph-pencil-simple"></i></button>` : ''}
-                            <button onclick="deleteTask('${task.id}')" class="w-8 h-8 bg-slate-50 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 hover:text-rose-500 hover:border-rose-200 transition-colors" title="删除"><i class="ph ph-trash"></i></button>
+                            ${!isCompleted ? `<button onclick="window.openEditModal('${task.id}')" class="w-8 h-8 bg-slate-50 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 hover:text-brand transition-colors"><i class="ph ph-pencil-simple"></i></button>` : ''}
+                            <button onclick="window.deleteTask('${task.id}')" class="w-8 h-8 bg-slate-50 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 hover:text-rose-500 hover:border-rose-200 transition-colors" title="删除"><i class="ph ph-trash"></i></button>
                             ${isCompleted ? `<div class="text-[10px] font-bold text-slate-400 bg-slate-50 px-2 py-1 rounded">结于 ${task.actualTime}</div>` : 
-                              `<button onclick="openSettlementModal('${task.id}')" class="w-8 h-8 bg-slate-50 rounded-full border border-slate-200 flex items-center justify-center text-brand active:scale-90 shadow-sm transition-all hover:bg-white hover:border-accent"><i class="ph ph-check"></i></button>`}
+                              `<button onclick="window.openSettlementModal('${task.id}')" class="w-8 h-8 bg-slate-50 rounded-full border border-slate-200 flex items-center justify-center text-brand active:scale-90 shadow-sm transition-all hover:bg-white hover:border-accent"><i class="ph ph-check"></i></button>`}
                         </div>
                     </div>
                     <h3 class="text-sm font-bold text-brand ${isCompleted ? 'line-through text-slate-400' : ''}">${task.name}</h3>
@@ -451,112 +553,10 @@
             document.getElementById('stat-rate').innerText = todayTasks.length ? Math.round((completed/todayTasks.length)*100) + '%' : '0%';
         }
 
-        // =====================================================================
-        // AI 战略助手逻辑 
-        // =====================================================================
-        async function sendChatMessage() {
-            const input = document.getElementById('ai-input');
-            const text = input.value.trim();
-            if(!text) return;
-
-            const history = document.getElementById('chat-history');
-            history.insertAdjacentHTML('beforeend', `<div class="flex justify-end mb-4"><div class="bg-accent text-white p-3 rounded-2xl rounded-tr-none text-sm max-w-[85%] shadow-sm">${text}</div></div>`);
-            input.value = '';
-            history.scrollTop = history.scrollHeight;
-
-            const loadingId = 'ai-loading-' + Date.now();
-            history.insertAdjacentHTML('beforeend', `<div id="${loadingId}" class="flex items-center gap-3 py-2 px-3 bg-slate-50 rounded-xl w-fit"><div class="dot-pulse"></div></div>`);
-
-            if (DEEPSEEK_API_KEY) {
-                try {
-                    chatContext.push({ role: "user", content: text });
-                    
-                    const response = await fetch('https://api.deepseek.com/chat/completions', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${DEEPSEEK_API_KEY}` },
-                        body: JSON.stringify({
-                            model: "deepseek-chat",
-                            messages: [
-                                { 
-                                    role: "system", 
-                                    content: `你是一个高级战略助手。请严格按照以下四阶段引导用户：
-                                    当前阶段：${conversationStage}
-                                    
-                                    1. 第一阶段（整理规划）：识别用户想做的任务，给出初步日程建议。询问：“这是我为您初步整理的日程安排，您看看是否有需要调整的地方？”
-                                    2. 第二阶段（深入描述）：用户确认路线后，针对重要事项追问具体的执行策略（打算怎么干）。询问：“这些重要事项具体要做什么？打算怎么干？”
-                                    3. 第三阶段（最终确认）：记录细节到 description 字段，重新整理时间。询问：“这是加入执行细节后的最终规划，您看还有什么需要补充的吗？”
-                                    4. 第四阶段（生成确认）：确认无误后，告知用户：“现在为您生成今日日程”，并输出 JSON。
-                                    
-                                    特别注意：
-                                    - 只有在第4阶段，用户明确表示“生成”、“可以”、“没问题”时，才在输出中附带 JSON。
-                                    - JSON 格式：{"analysis":"今日日程已为您生成完成。", "tasks":[{"name":"任务名","description":"怎么干的细节","start_time":"HH:MM","duration":60,"priority":"分类","importance":1-10,"urgency":1-10}]}`
-                                },
-                                ...chatContext.slice(-10)
-                            ],
-                            temperature: 0.7
-                        })
-                    });
-                    
-                    const data = await response.json();
-                    document.getElementById(loadingId).remove();
-                    const content = data.choices[0].message.content;
-                    chatContext.push({ role: "assistant", content: content });
-
-                    let displayMsg = content;
-                    const jsonMatch = content.match(/\{[\s\S]*\}/);
-                    
-                    if (jsonMatch) {
-                        try {
-                            const aiData = JSON.parse(jsonMatch[0]);
-                            if (aiData.tasks && aiData.tasks.length > 0) {
-                                const today = new Date().toISOString().split('T')[0];
-                                aiData.tasks.forEach(t => {
-                                    const [h, m] = t.start_time.split(':').map(Number);
-                                    const endD = new Date(0,0,0, h, m + (t.duration || 60));
-                                    const end = String(endD.getHours()).padStart(2,'0') + ":" + String(endD.getMinutes()).padStart(2,'0');
-                                    
-                                    taskListState.push({
-                                        id: 't_' + Date.now() + Math.random(),
-                                        date: today,
-                                        name: t.name,
-                                        description: t.description || "",
-                                        startTime: t.start_time,
-                                        endTime: end,
-                                        duration: t.duration || 60,
-                                        tags: [t.priority || "常规任务"],
-                                        importance: t.importance || 5,
-                                        urgency: t.urgency || 5,
-                                        status: 'pending'
-                                    });
-                                });
-                                renderTasks();
-                                showToast("日程生成成功", "ph-magic-wand");
-                                displayMsg = aiData.analysis || "今日日程已为您生成完成。";
-                                conversationStage = 1; // 重置
-                            }
-                        } catch(e) { console.error("解析错误", e); }
-                    } else {
-                        if (conversationStage < 4) conversationStage++;
-                    }
-
-                    history.insertAdjacentHTML('beforeend', `<div class="mb-4"><div class="bg-slate-100 p-3 rounded-2xl rounded-tl-none text-sm text-slate-700 max-w-[85%] border border-slate-200 leading-relaxed">${displayMsg}</div></div>`);
-                } catch (e) { document.getElementById(loadingId).innerHTML = '<span class="text-xs text-rose-500">接口连接异常</span>'; }
-            } else {
-                setTimeout(() => {
-                    document.getElementById(loadingId).remove();
-                    history.insertAdjacentHTML('beforeend', `<div class="mb-4"><div class="bg-slate-100 p-3 rounded-2xl rounded-tl-none text-sm text-slate-700 max-w-[85%] border border-slate-200">「演示模式」：请输入有效 API Key 以开启深度对话。</div></div>`);
-                }, 800);
-            }
-            history.scrollTop = history.scrollHeight;
-        }
-
-        // =====================================================================
-        // 辅助 UI 逻辑
-        // =====================================================================
-        function toggleQuickAdd() { document.getElementById('quick-add-panel').classList.toggle('hidden'); document.getElementById('quick-add-caret').classList.toggle('rotate-180'); }
-        function updateSliderVal(type) { document.getElementById(`val-${type}`).innerText = document.getElementById(`qa-${type}`).value; }
+        window.toggleQuickAdd = function() { document.getElementById('quick-add-panel').classList.toggle('hidden'); document.getElementById('quick-add-caret').classList.toggle('rotate-180'); }
+        window.updateSliderVal = function(type) { document.getElementById(`val-${type}`).innerText = document.getElementById(`qa-${type}`).value; }
         
-        function submitQuickTask() {
+        window.submitQuickTask = async function() {
             const name = document.getElementById('qa-name').value.trim();
             if(!name) return;
             const start = document.getElementById('qa-start').value;
@@ -564,12 +564,13 @@
             const [h, m] = start.split(':').map(Number);
             const endD = new Date(0,0,0, h, m + duration);
             const end = String(endD.getHours()).padStart(2,'0') + ":" + String(endD.getMinutes()).padStart(2,'0');
-            taskListState.push({ id: 't_'+Date.now(), date: new Date().toISOString().split('T')[0], name, description: document.getElementById('qa-desc').value, startTime: start, endTime: end, duration, tags: [parseInt(document.getElementById('qa-importance').value)>=9?'非常重要任务':'常规任务'], importance: parseInt(document.getElementById('qa-importance').value), urgency: parseInt(document.getElementById('qa-urgency').value), status: 'pending' });
-            renderTasks(); toggleQuickAdd(); showToast("任务已手动排入");
+            
+            const newTask = { id: 't_'+Date.now(), date: new Date().toISOString().split('T')[0], name, description: document.getElementById('qa-desc').value, startTime: start, endTime: end, duration, tags: [parseInt(document.getElementById('qa-importance').value)>=9?'非常重要任务':'常规任务'], importance: parseInt(document.getElementById('qa-importance').value), urgency: parseInt(document.getElementById('qa-urgency').value), status: 'pending' };
+            await saveTaskToCloud(newTask);
+            window.toggleQuickAdd(); showToast("任务已保存至云端");
         }
 
-        // 修改任务
-        function openEditModal(id) {
+        window.openEditModal = function(id) {
             const t = taskListState.find(x => x.id === id);
             document.getElementById('edit-task-id').value = id;
             document.getElementById('edit-name').value = t.name;
@@ -580,14 +581,14 @@
             setTimeout(() => document.getElementById('edit-card').classList.remove('scale-95'), 10);
         }
 
-        function closeEditModal() {
+        window.closeEditModal = function() {
             document.getElementById('edit-card').classList.add('scale-95');
             setTimeout(() => document.getElementById('edit-modal').classList.add('hidden'), 200);
         }
 
-        function submitEdit() {
+        window.submitEdit = async function() {
             const id = document.getElementById('edit-task-id').value;
-            const t = taskListState.find(x => x.id === id);
+            const t = { ...taskListState.find(x => x.id === id) }; // copy object
             t.name = document.getElementById('edit-name').value;
             t.startTime = document.getElementById('edit-start').value;
             t.duration = parseInt(document.getElementById('edit-duration').value);
@@ -597,56 +598,47 @@
             const endD = new Date(0,0,0, h, m + t.duration);
             t.endTime = String(endD.getHours()).padStart(2,'0') + ":" + String(endD.getMinutes()).padStart(2,'0');
             
-            closeEditModal(); 
-            renderTasks(); 
-            showToast("规划已修正", "ph-check-circle");
+            await saveTaskToCloud(t);
+            window.closeEditModal(); 
+            showToast("云端计划已更新", "ph-check-circle");
         }
 
-        // =====================================================================
-        // 🔥 修复：删除单项与清空的自定义UI逻辑
-        // =====================================================================
         let pendingDeleteId = null;
-
-        function deleteTask(id) {
+        window.deleteTask = function(id) {
             pendingDeleteId = id;
             document.getElementById('delete-confirm-title').innerText = "删除任务";
-            document.getElementById('delete-confirm-msg').innerText = "是否删除此任务？";
-            
+            document.getElementById('delete-confirm-msg').innerText = "是否从云端永久删除此任务？";
             document.getElementById('delete-confirm-modal').classList.remove('hidden');
             setTimeout(() => document.getElementById('delete-confirm-card').classList.remove('scale-95'), 10);
         }
 
-        function clearAllTasks() {
-            pendingDeleteId = null; // null 代表清空全部
+        window.clearAllTasks = function() {
+            pendingDeleteId = null;
             document.getElementById('delete-confirm-title').innerText = "一键清空";
-            document.getElementById('delete-confirm-msg').innerText = "是否清空今日所有任务？";
-            
+            document.getElementById('delete-confirm-msg').innerText = "是否清空今日所有云端任务？";
             document.getElementById('delete-confirm-modal').classList.remove('hidden');
             setTimeout(() => document.getElementById('delete-confirm-card').classList.remove('scale-95'), 10);
         }
 
-        function closeDeleteConfirm() {
+        window.closeDeleteConfirm = function() {
             document.getElementById('delete-confirm-card').classList.add('scale-95');
             setTimeout(() => document.getElementById('delete-confirm-modal').classList.add('hidden'), 200);
         }
 
-        function executeDelete() {
+        window.executeDelete = async function() {
             if (pendingDeleteId) {
-                // 删除单个
-                taskListState = taskListState.filter(t => t.id !== pendingDeleteId);
-                showToast("任务已删除", "ph-trash");
+                await deleteTaskFromCloud(pendingDeleteId);
+                showToast("云端记录已抹除", "ph-trash");
             } else {
-                // 清空当日全部
                 const todayStr = new Date().toISOString().split('T')[0];
-                taskListState = taskListState.filter(t => t.date !== todayStr);
-                showToast("今日任务已全部清空", "ph-trash");
+                const toDelete = taskListState.filter(t => t.date === todayStr);
+                for(let t of toDelete) await deleteTaskFromCloud(t.id);
+                showToast("今日云端任务已清空", "ph-trash");
             }
-            renderTasks();
-            closeDeleteConfirm();
+            window.closeDeleteConfirm();
         }
 
-        // 结算审计
-        function openSettlementModal(id) {
+        window.openSettlementModal = function(id) {
             const t = taskListState.find(x => x.id === id);
             document.getElementById('settle-task-name').innerText = t.name;
             document.getElementById('settle-task-id').value = id;
@@ -655,81 +647,75 @@
             const nowTime = new Date().toTimeString().slice(0,5);
             document.getElementById('settle-actual-end').value = nowTime;
             
-            // 自动推断初始选项，但允许手动修改
             const statusSelect = document.getElementById('settle-status');
-            if (nowTime < t.endTime) {
-                statusSelect.value = 'early';
-            } else if (nowTime === t.endTime) {
-                statusSelect.value = 'on-time';
-            } else {
-                statusSelect.value = 'overdue';
-            }
-            toggleDelayField();
-
+            if (nowTime < t.endTime) statusSelect.value = 'early';
+            else if (nowTime === t.endTime) statusSelect.value = 'on-time';
+            else statusSelect.value = 'overdue';
+            
+            window.toggleDelayField();
             document.getElementById('settlement-modal').classList.remove('hidden');
             setTimeout(() => document.getElementById('settlement-card').classList.remove('scale-95'), 10);
         }
 
-        function toggleDelayField() {
+        window.toggleDelayField = function() {
             const status = document.getElementById('settle-status').value;
             const dr = document.getElementById('settle-delay-reason');
-            if (status === 'overdue') {
-                dr.classList.remove('hidden');
-            } else {
-                dr.classList.add('hidden');
-            }
+            if (status === 'overdue') dr.classList.remove('hidden');
+            else dr.classList.add('hidden');
         }
 
-        function closeSettlementModal() { 
+        window.closeSettlementModal = function() { 
             document.getElementById('settlement-card').classList.add('scale-95');
             setTimeout(() => document.getElementById('settlement-modal').classList.add('hidden'), 200); 
         }
 
-        function submitSettlement() {
-            const t = taskListState.find(x => x.id === document.getElementById('settle-task-id').value);
+        window.submitSettlement = async function() {
+            const t = { ...taskListState.find(x => x.id === document.getElementById('settle-task-id').value) };
             t.status = 'completed'; 
             t.actualStartTime = document.getElementById('settle-actual-start').value;
             t.actualTime = document.getElementById('settle-actual-end').value;
             t.settleStatus = document.getElementById('settle-status').value;
             t.delayReason = document.getElementById('settle-delay-reason').value;
             
-            closeSettlementModal(); 
-            renderTasks(); 
-            showToast("已审计归档");
-            
-            if (t.settleStatus === 'early') {
-                setTimeout(() => openReflectionModal(t), 500);
-            }
+            await saveTaskToCloud(t);
+            window.closeSettlementModal(); 
+            showToast("审计记录已同步云端");
+            if (t.settleStatus === 'early') setTimeout(() => window.openReflectionModal(t), 500);
         }
 
-        // 复盘
-        function checkEveningReflection(force) { 
-            if(force) showToast("正在后台复盘...", "ph-moon-stars"); 
-            // 这里可以加入呼出 reflection modal 的逻辑
-        }
-        function openReflectionModal(t) {
+        window.checkEveningReflection = function(force) { if(force) showToast("触发复盘检测...", "ph-moon-stars"); }
+        
+        window.openReflectionModal = function(t) {
             document.getElementById('reflection-task-name').innerText = t.name;
             document.getElementById('reflection-task-id').value = t.id;
             document.getElementById('reflection-input').value = "";
             document.getElementById('reflection-modal').classList.remove('hidden');
         }
-        function closeReflectionModal() { document.getElementById('reflection-modal').classList.add('hidden'); }
-        function submitReflection() {
-            taskInsights.push({ id: document.getElementById('reflection-task-id').value, note: document.getElementById('reflection-input').value });
-            closeReflectionModal();
-            showToast("洞察已入库");
+        
+        window.closeReflectionModal = function() { document.getElementById('reflection-modal').classList.add('hidden'); }
+        
+        window.submitReflection = async function() {
+            const insight = {
+                id: 'ins_' + Date.now(),
+                taskId: document.getElementById('reflection-task-id').value,
+                note: document.getElementById('reflection-input').value,
+                date: new Date().toISOString()
+            };
+            if (currentUser) await setDoc(doc(db, 'artifacts', appId, 'users', currentUser.uid, 'insights', insight.id), insight);
+            window.closeReflectionModal();
+            showToast("洞察素材已永久入库");
         }
 
-        // 功能模块
-        function loadHistoryTasks() {
+        window.loadHistoryTasks = function() {
             const date = document.getElementById('history-date-picker').value;
             const search = document.getElementById('history-search').value.toLowerCase();
             const container = document.getElementById('history-list-container');
             if(!container) return;
             container.innerHTML = '';
+            // 从全量云端状态中过滤
             const filtered = taskListState.filter(t => t.date === date && t.name.toLowerCase().includes(search));
             if(filtered.length === 0) {
-                container.innerHTML = `<div class="py-10 text-center text-slate-400 text-sm">该日期暂无记录</div>`;
+                container.innerHTML = `<div class="py-10 text-center text-slate-400 text-sm">云端暂无该日期的任务记录</div>`;
                 return;
             }
             filtered.forEach(task => {
@@ -738,20 +724,14 @@
             });
         }
 
-        // =====================================================================
-        // AI 能力分析与党政风月度总结 (基于真实数据的动态推演)
-        // =====================================================================
-        async function generateCapabilityReport() {
+        window.generateCapabilityReport = async function() {
             const content = document.getElementById('capability-content');
             const loading = document.getElementById('capability-loading');
             content.innerHTML = ''; 
             loading.classList.remove('hidden');
 
-            // 提取核心评估数据给 AI，避免 token 浪费
             const evalData = taskListState.map(t => ({
-                任务: t.name,
-                重要度: t.importance,
-                紧急度: t.urgency,
+                任务: t.name, 重要度: t.importance, 紧急度: t.urgency,
                 结果: t.settleStatus === 'early' ? '提前完成' : (t.settleStatus === 'on-time' ? '按时完成' : (t.settleStatus === 'overdue' ? '逾期' : '未结项')),
                 策略与阻碍: t.strategy || t.delayReason || "无"
             }));
@@ -764,43 +744,81 @@
                         body: JSON.stringify({
                             model: "deepseek-chat",
                             messages: [
-                                { 
-                                    role: "system", 
-                                    content: `你是一个组织人事部门的高级绩效评估专家。请基于用户提供的任务数据（含重要度1-10、紧急度1-10、完成情况等），生成一份高度专业的个人能力评估报告。
-                                    要求：
-                                    1. 结合四象限法则（重要紧急矩阵）分析精力分配的合理性。
-                                    2. 结合提前/逾期完成的状态，评估其执行力、作风与统筹谋划能力。
-                                    3. 文风：必须采用党政机关、体制内严谨客观的公文风格（如：提高政治站位、大局意识、抓好落实、攻坚克难等词汇）。
-                                    4. 使用 Markdown 格式排版。`
-                                },
-                                { role: "user", content: "近期任务执行数据如下：" + JSON.stringify(evalData) }
+                                { role: "system", content: "你是一个组织人事部门的高级绩效评估专家。基于历史数据，生成党政机关公文风格的个人能力评估报告。Markdown排版。" },
+                                { role: "user", content: "任务执行数据：" + JSON.stringify(evalData) }
                             ]
                         })
                     });
                     const data = await response.json();
                     content.innerHTML = parseSimpleMarkdown(data.choices[0].message.content);
-                } catch (e) { 
-                    content.innerHTML = `<div class="text-rose-500 text-center font-bold">API 调用异常，请检查网络或密钥。</div>`; 
-                }
+                } catch (e) { content.innerHTML = `<div class="text-rose-500 text-center font-bold">云端分析异常。</div>`; }
             } else {
                 setTimeout(() => {
-                    content.innerHTML = "<h3>(演示模式) 个人执行效能考察报告</h3><p>经考察，该同志在<strong>重大战略部署（高重要度任务）</strong>上表现出了较高的政治站位与过硬的攻坚作风，执行冗余度达 1.5x。但在应对<strong>突发性日常事务</strong>时，统筹谋划能力仍有提升空间，建议进一步深化长效应对机制。</p>";
+                    content.innerHTML = "<h3>(演示) 干部执行效能考察报告</h3><p>经考察，该同志在面对繁重战略部署时，表现出极高的政治站位与过硬作风，统筹谋划能力较上月提升显著，建议进一步常态化保持。</p>";
                 }, 1500);
             }
             loading.classList.add('hidden');
         }
 
-        async function generateMonthlySummary() {
+        window.generateMonthlySummary = async function() {
             const container = document.getElementById('summary-content');
             const exportBtn = document.getElementById('export-container');
-            container.innerHTML = '<div class="dot-pulse mx-auto"></div><p class="text-center text-xs mt-4 text-slate-400">正在重构党政公文用语并提炼战略成果...</p>';
+            container.innerHTML = '<div class="dot-pulse mx-auto"></div><p class="text-center text-xs mt-4 text-slate-400">正在调取云端全量数据并重构公文用语...</p>';
             exportBtn.classList.add('hidden');
 
-            const monthData = taskListState.map(t => ({
-                任务: t.name,
-                级别: t.tags[0],
-                结果: t.status === 'completed' ? '已落实' : '推进中'
-            }));
+            const monthData = taskListState.map(t => ({ 任务: t.name, 级别: t.tags[0], 结果: t.status === 'completed' ? '已落实' : '推进中' }));
+
+            if (DEEPSEEK_API_KEY) {
+                try {
+                    const response = await fetch('https://api.deepseek.com/chat/completions', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${DEEPSEEK_API_KEY}` },
+                        body: JSON.stringify({
+                            model: "deepseek-chat",
+                            messages: [
+                                { role: "system", content: "你是一个党政机关高级笔杆子。将数据重构为具备高度的月度工作总结。不列流水账，合并同类项，包含四个标准公文板块。Markdown排版。" },
+                                { role: "user", content: JSON.stringify(monthData) }
+                            ]
+                        })
+                    });
+                    const data = await response.json();
+                    container.innerHTML = parseSimpleMarkdown(data.choices[0].message.content);
+                    exportBtn.classList.remove('hidden');
+                } catch(e) { container.innerHTML = `<div class="text-rose-500 text-center font-bold">总结生成失败。</div>`; }
+            } else {
+                setTimeout(() => {
+                    container.innerHTML = "<h2>关于近期核心工作开展情况的汇报</h2><p>本阶段，在总体战略目标的指引下，我方聚焦主责主业，狠抓工作落实。有效化解了历史遗留风险，为高质量发展筑牢了根基。</p>";
+                    exportBtn.classList.remove('hidden');
+                }, 2000);
+            }
+        }
+
+        window.exportToWord = function() {
+            const content = document.getElementById('summary-content').innerHTML;
+            const wordHtml = `<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset="utf-8"><style>body{font-family:"FangSong","SimSun",serif;line-height:1.8;font-size:16pt;}h1{text-align:center;font-family:"SimHei",sans-serif;font-size:22pt;margin-bottom:20pt;}h2{font-family:"SimHei",sans-serif;font-size:18pt;margin-top:15pt;}h3{font-family:"SimHei",sans-serif;font-size:16pt;margin-top:10pt;}p{text-indent:2em;margin-bottom:10pt;}strong{font-family:"SimHei",sans-serif;font-weight:bold;}</style></head><body>${content}</body></html>`;
+            const blob = new Blob([wordHtml], { type: 'application/msword' });
+            const link = document.createElement('a'); link.href = URL.createObjectURL(blob); link.download = `战略工作汇报_${new Date().toLocaleDateString('zh-CN')}.doc`;
+            document.body.appendChild(link); link.click(); document.body.removeChild(link);
+            showToast("公文报告已导出", "ph-file-doc");
+        }
+
+        window.toggleAiPanel = function() { document.getElementById('ai-panel').classList.toggle('ai-panel-hidden'); document.getElementById('ai-panel').classList.toggle('ai-panel-visible'); }
+        window.handleChatEnter = function(e) { if(e.key === 'Enter') window.sendChatMessage(); }
+
+        window.sendChatMessage = async function() {
+            const input = document.getElementById('ai-input');
+            const text = input.value.trim();
+            if(!text) return;
+
+            const history = document.getElementById('chat-history');
+            history.insertAdjacentHTML('beforeend', `<div class="flex justify-end mb-4"><div class="bg-accent text-white p-3 rounded-2xl rounded-tr-none text-sm max-w-[85%] shadow-sm">${text}</div></div>`);
+            input.value = '';
+            history.scrollTop = history.scrollHeight;
+
+            const loadingId = 'ai-loading-' + Date.now();
+            history.insertAdjacentHTML('beforeend', `<div id="${loadingId}" class="flex items-center gap-3 py-2 px-3 bg-slate-50 rounded-xl w-fit"><div class="dot-pulse"></div></div>`);
+
+            await saveChatToCloud('user', text);
 
             if (DEEPSEEK_API_KEY) {
                 try {
@@ -812,74 +830,59 @@
                             messages: [
                                 { 
                                     role: "system", 
-                                    content: `你是一个党政机关的高级“笔杆子”。请根据提供的任务流水数据，撰写一份极具高度的月度工作总结。
-                                    核心要求：
-                                    1. 严禁罗列流水账。必须合并同类项，将琐事提炼为具备战略高度的业务成果。
-                                    2. 文风必须具备浓厚的党政机关特色（如：坚持问题导向、强化底线思维、深化体制改革、狠抓落实、统筹推进、常态化长效化等）。
-                                    3. 报告必须包含四个板块：一、本月工作开展情况综述；二、重点工作突破与亮点；三、存在的问题与效能分析；四、下步工作谋划。
-                                    4. 仅输出正文，使用 Markdown 排版。`
+                                    content: `你是一个高级战略助手。请严格按四阶段引导：阶段${conversationStage}。
+                                    1.整理规划；2.追问执行策略(怎么干)；3.记录细节并最终确认；4.用户确认生成后，输出JSON。
+                                    格式: {"analysis":"...", "tasks":[{"name":"..","description":"怎么干","start_time":"HH:MM","duration":60,"priority":"分类","importance":1-10,"urgency":1-10}]}`
                                 },
-                                { role: "user", content: "本月度基础任务数据如下：" + JSON.stringify(monthData) }
-                            ]
+                                ...chatContext.slice(-8)
+                            ],
+                            temperature: 0.7
                         })
                     });
+                    
                     const data = await response.json();
-                    container.innerHTML = parseSimpleMarkdown(data.choices[0].message.content);
-                    exportBtn.classList.remove('hidden');
-                } catch(e) { 
-                    container.innerHTML = `<div class="text-rose-500 text-center font-bold">总结生成失败，请确认 API Key 是否正确填写。</div>`; 
-                }
+                    document.getElementById(loadingId).remove();
+                    const content = data.choices[0].message.content;
+                    await saveChatToCloud('assistant', content);
+
+                    let displayMsg = content;
+                    const jsonMatch = content.match(/\{[\s\S]*\}/);
+                    
+                    if (jsonMatch && (text.includes("生成") || text.includes("是") || text.includes("确认"))) {
+                        try {
+                            const aiData = JSON.parse(jsonMatch[0]);
+                            if (aiData.tasks && aiData.tasks.length > 0) {
+                                const today = new Date().toISOString().split('T')[0];
+                                for(let t of aiData.tasks) {
+                                    const [h, m] = t.start_time.split(':').map(Number);
+                                    const endD = new Date(0,0,0, h, m + (t.duration || 60));
+                                    const end = String(endD.getHours()).padStart(2,'0') + ":" + String(endD.getMinutes()).padStart(2,'0');
+                                    
+                                    await saveTaskToCloud({ id: 't_' + Date.now() + Math.random(), date: today, name: t.name, description: t.description || "", startTime: t.start_time, endTime: end, duration: t.duration || 60, tags: [t.priority || "常规任务"], importance: t.importance || 5, urgency: t.urgency || 5, status: 'pending' });
+                                }
+                                showToast("日程已同步至云端", "ph-cloud-check");
+                                displayMsg = aiData.analysis || "今日日程已为您生成完成。";
+                                conversationStage = 1;
+                            }
+                        } catch(e) { console.error("解析错误"); }
+                    } else {
+                        if (conversationStage < 4) conversationStage++;
+                    }
+
+                    history.insertAdjacentHTML('beforeend', `<div class="mb-4"><div class="bg-slate-100 p-3 rounded-2xl rounded-tl-none text-sm text-slate-700 max-w-[85%] border border-slate-200 leading-relaxed">${displayMsg}</div></div>`);
+                } catch (e) { document.getElementById(loadingId).innerHTML = '<span class="text-xs text-rose-500">接口连接异常</span>'; }
             } else {
                 setTimeout(() => {
-                    container.innerHTML = "<h2>关于近期核心工作开展情况的汇报</h2><p>本阶段，在总体战略目标的指引下，我方聚焦主责主业，狠抓工作落实。核心突破在于稳步推进了<strong>标准化决策机制的常态化建设</strong>，针对 12 项潜在难点痛点进行了集中攻坚，有效化解了历史遗留风险，为下一阶段业务的高质量发展筑牢了根基。</p>";
-                    exportBtn.classList.remove('hidden');
-                }, 2000);
+                    document.getElementById(loadingId).remove();
+                    history.insertAdjacentHTML('beforeend', `<div class="mb-4"><div class="bg-slate-100 p-3 rounded-2xl rounded-tl-none text-sm text-slate-700 max-w-[85%] border border-slate-200">「演示模式」：由于未配置 API，暂无法执行深度对话。</div></div>`);
+                }, 800);
             }
-        }
-
-        function exportToWord() {
-            const content = document.getElementById('summary-content').innerHTML;
-            // 优化 Word 导出样式，使其更符合公文的阅读习惯
-            const wordHtml = `
-                <html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
-                <head>
-                    <meta charset="utf-8">
-                    <style>
-                        body { font-family: "FangSong", "SimSun", serif; line-height: 1.8; font-size: 16pt; color: #000; }
-                        h1 { text-align: center; font-family: "SimHei", sans-serif; font-size: 22pt; margin-bottom: 20pt; }
-                        h2 { font-family: "SimHei", sans-serif; font-size: 18pt; margin-top: 15pt; }
-                        h3 { font-family: "SimHei", sans-serif; font-size: 16pt; margin-top: 10pt; }
-                        p { text-indent: 2em; margin-bottom: 10pt; }
-                        strong { font-family: "SimHei", sans-serif; font-weight: bold; }
-                    </style>
-                </head>
-                <body>
-                    ${content}
-                </body>
-                </html>
-            `;
-            const blob = new Blob([wordHtml], { type: 'application/msword' });
-            const link = document.createElement('a');
-            link.href = URL.createObjectURL(blob);
-            link.download = `月度工作情况汇报_${new Date().toLocaleDateString('zh-CN')}.doc`;
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            showToast("公文报告已导出并下载", "ph-file-doc");
+            history.scrollTop = history.scrollHeight;
         }
 
         function parseSimpleMarkdown(md) {
-            return md.replace(/^### (.*$)/gim, '<h3>$1</h3>')
-                     .replace(/^## (.*$)/gim, '<h2>$1</h2>')
-                     .replace(/^# (.*$)/gim, '<h1>$1</h1>')
-                     .replace(/\*\*(.*?)\*\*/gim, '<strong>$1</strong>')
-                     .replace(/^\- (.*$)/gim, '<ul class="list-disc pl-5 mb-2 text-slate-600"><li>$1</li></ul>')
-                     .replace(/<\/ul>\n<ul.*?>/gim, '')
-                     .replace(/\n/gim, '<br>');
+            return md.replace(/^### (.*$)/gim, '<h3>$1</h3>').replace(/^## (.*$)/gim, '<h2>$1</h2>').replace(/^# (.*$)/gim, '<h1>$1</h1>').replace(/\*\*(.*?)\*\*/gim, '<strong>$1</strong>').replace(/^\- (.*$)/gim, '<ul class="list-disc pl-5 mb-2 text-slate-600"><li>$1</li></ul>').replace(/<\/ul>\n<ul.*?>/gim, '').replace(/\n/gim, '<br>');
         }
-
-        function toggleAiPanel() { document.getElementById('ai-panel').classList.toggle('ai-panel-hidden'); document.getElementById('ai-panel').classList.toggle('ai-panel-visible'); }
-        function handleChatEnter(e) { if(e.key === 'Enter') sendChatMessage(); }
     </script>
 </body>
 </html>
